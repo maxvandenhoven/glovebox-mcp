@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-glovebox-mcp = "glovebox_mcp:main"
+glovebox = "glovebox_mcp:main"
 
 [build-system]
 requires = ["uv_build>=0.11.2,<0.12.0"]
