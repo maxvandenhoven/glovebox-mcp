@@ -1,0 +1,75 @@
+[project]
+name = "glovebox-mcp"
+version = "0.1.0"
+description = "An MCP server for running foundational agent tools in a hardware-isolated sandbox"
+readme = "README.md"
+authors = [
+    { name = "Max van den Hoven", email = "max.hoven@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.136.1",
+    "microsandbox>=0.4.6",
+    "pydantic>=2.13.4",
+    "toml>=0.10.2",
+]
+
+[project.scripts]
+glovebox-mcp = "glovebox_mcp:main"
+
+[build-system]
+requires = ["uv_build>=0.11.2,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.6.0",
+    "pytest>=9.0.3",
+    "ruff>=0.15.13",
+    "ty>=0.0.35",
+]
+
+[tool.ty.src]
+include = [
+    "src/**",
+    "tests/**",
+]
+exclude = [
+    "notebooks/**",
+]
+
+[tool.ruff]
+line-length = 90
+indent-width = 4
+include = [
+    "src/**",
+    "tests/**",
+]
+exclude = [
+    "notebooks/**",
+]
+
+[tool.ruff.lint]
+select = [
+    "B",  # flake8-bugbear
+    "D",  # pydocstyle
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "I",  # isort
+    "EM",  # flake8-errmsg
+    "T20",  # flake8-print
+    "RET",  # flake8-return
+    "ANN",  # flake8-annotations
+]
+ignore = [
+    "D100",  # Ignore missing docstring in public module
+    "D104",  # Ignore missing docstring in public package
+    "D203",  # Ignore one blank line before class docstring
+    "D213",  # Ignore multi-line docstring start on second line
+    "D400",  # Ignore missing period in docstring first line (also captured by D415)
+    "D413",  # Ignore missing blank line after docstring section
+    "D417",  # Ignore missing argument descriptions in docstring
+    "ANN002",  # Ignore missing *args type annotations
+    "ANN003",  # Ignore missing **kwargs type annotations
+    "ANN401",  # Ignore Any type annotations
+]
