@@ -12,6 +12,7 @@ dependencies = [
     "microsandbox>=0.4.6",
     "pydantic>=2.13.4",
     "toml>=0.10.2",
+    "typer>=0.25.1",
 ]
 
 [project.scripts]
